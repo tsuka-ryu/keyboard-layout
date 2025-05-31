@@ -1,27 +1,10 @@
-// import { invoke } from "@tauri-apps/api/core";
 import { useEffect, useState } from "react";
 import "./App.css";
 import KeyboardLayout from "./KeyboardLayout";
 import { register } from '@tauri-apps/plugin-global-shortcut';
+import { LAYER_ONE } from "./keymap";
 
-const keyboardLayout = {
-  left: {
-    main: [
-      [{ label: "Q" }, { label: "W" }, { label: "E" }, { label: "R" }, { label: "T" }, { label: "Y" }],
-      [{ label: "A" }, { label: "S" }, { label: "D" }, { label: "F" }, { label: "G" }, { label: "H" }],
-      [{ label: "Z" }, { label: "X" }, { label: "C" }, { label: "V" }, { label: "B" }, { label: "N" }]
-    ],
-    thumb: [{ label: "Ctrl" }, { label: "Alt" }, { label: "⌘" }]
-  },
-  right: {
-    main: [
-      [{ label: "Y" }, { label: "U" }, { label: "I" }, { label: "O" }, { label: "P" }, { label: "[" }],
-      [{ label: "H" }, { label: "J" }, { label: "K" }, { label: "L" }, { label: ";" }, { label: "'" }],
-      [{ label: "N" }, { label: "M" }, { label: "," }, { label: "." }, { label: "/" }, { label: "⇧" }]
-    ],
-    thumb: [{ label: "Space" }, { label: "Alt" }, { label: "Ctrl" }]
-  }
-};
+
 
 function App() {
   const [lastTriggeredShortcut, setLastTriggeredShortcut] = useState<string>("I");
@@ -63,7 +46,7 @@ function App() {
       {lastTriggeredShortcut && (
         <p style={{ color: 'white' }}>Last triggered shortcut: {lastTriggeredShortcut}</p>
       )}
-      <KeyboardLayout layout={keyboardLayout} />
+      <KeyboardLayout layout={LAYER_ONE} />
     </main>
   );
 }
