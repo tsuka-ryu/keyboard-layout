@@ -1,12 +1,30 @@
 import Key from './Key';
 
-const KeyboardLayout = () => {
+type KeyData = {
+  label: string;
+};
+
+type KeyboardData = {
+  left: {
+    main: KeyData[][];
+    thumb: KeyData[];
+  };
+  right: {
+    main: KeyData[][];
+    thumb: KeyData[];
+  };
+};
+
+type KeyboardLayoutProps = {
+  layout: KeyboardData;
+};
+
+const KeyboardLayout = ({ layout }: KeyboardLayoutProps) => {
   const containerStyle = {
     display: 'flex',
     justifyContent: 'center',
     gap: '60px',
     padding: '20px',
-    background:"rgba(0, 0, 0, 0.2)",
   } as const;
 
   const halfStyle = {
@@ -21,7 +39,7 @@ const KeyboardLayout = () => {
     gridTemplateColumns: 'repeat(3, 1fr)',
     gap: '4px',
     marginTop: '8px',
-    width: '50%',  // 親要素の半分の幅に制限
+    width: '50%',
     marginLeft: 'auto',
     marginRight: 'auto',
   } as const;
@@ -30,23 +48,31 @@ const KeyboardLayout = () => {
     <div style={containerStyle}>
       <div>
         <div style={halfStyle}>
-          <Key label="Q" /><Key label="W" /><Key label="E" /><Key label="R" /><Key label="T" /><Key label="Y" />
-          <Key label="A" /><Key label="S" /><Key label="D" /><Key label="F" /><Key label="G" /><Key label="H" />
-          <Key label="Z" /><Key label="X" /><Key label="C" /><Key label="V" /><Key label="B" /><Key label="N" />
+          {layout.left.main.map((row, rowIndex) => (
+            row.map((key, keyIndex) => (
+              <Key key={`left-${rowIndex}-${keyIndex}`} label={key.label} />
+            ))
+          ))}
         </div>
         <div style={thumbKeysStyle}>
-          <Key label="Ctrl" /><Key label="Alt" /><Key label="⌘" />
+          {layout.left.thumb.map((key, index) => (
+            <Key key={`left-thumb-${index}`} label={key.label} />
+          ))}
         </div>
       </div>
       
       <div>
         <div style={halfStyle}>
-          <Key label="Y" /><Key label="U" /><Key label="I" /><Key label="O" /><Key label="P" /><Key label="[" />
-          <Key label="H" /><Key label="J" /><Key label="K" /><Key label="L" /><Key label=";" /><Key label="'" />
-          <Key label="N" /><Key label="M" /><Key label="," /><Key label="." /><Key label="/" /><Key label="⇧" />
+          {layout.right.main.map((row, rowIndex) => (
+            row.map((key, keyIndex) => (
+              <Key key={`right-${rowIndex}-${keyIndex}`} label={key.label} />
+            ))
+          ))}
         </div>
         <div style={thumbKeysStyle}>
-          <Key label="Space" /><Key label="Alt" /><Key label="Ctrl" />
+          {layout.right.thumb.map((key, index) => (
+            <Key key={`right-thumb-${index}`} label={key.label} />
+          ))}
         </div>
       </div>
     </div>
