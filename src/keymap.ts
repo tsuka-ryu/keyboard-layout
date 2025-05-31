@@ -23,19 +23,21 @@ export const LAYER_TWO = {
   left: {
     main: [
       [{ label: "!" }, { label: "@" }, { label: "#" }, { label: "$" }, { label: "%" }, { label: "^" }],
-      [{ label: "`" }, { label: "▽" }, { label: "▽" }, { label: "↑" }, { label: "Entr" }, { label: "Spc" }],
+      [{ label: "`" }, { label: "▽" }, { label: "▽" }, { label: "↑" }, { label: "▽" }, { label: "Spc" }],
       [{ label: "Sft" }, { label: "▽" }, { label: "←" }, { label: "↓" }, { label: "→" }, { label: "⌘" }],
-      [{ label: "" }, { label: "" }, { label: "" }, { label: "▽" }, { label: "▽" }, { label: "" }]
+      [{ label: "" }, { label: "" }, { label: "▽" }, { label: "▽" }, { label: "" }, { label: "" }]
     ],
     thumb: [{ label: "▽" }, { label: "▽" }, { label: "▽" }]
 },
 right: {
     main: [
         [{ label: "&" }, { label: "*" }, { label: "(" }, { label: ")" }, { label: "=" }, { label: "`" }],
-        [{ label: "PU" }, { label: "MB1" }, { label: "MB2" }, { label: "`" }, { label: "[" }, { label: "]" }],
+        [{ label: "PU" }, { label: "M1" }, { label: "M2" }, { label: "`" }, { label: "[" }, { label: "]" }],
         [{ label: "N" }, { label: "M" }, { label: "," }, { label: "." }, { label: ";" }, { label: "'" }],
         [{ label: "" }, { label: "" }, { label: "" }, { label: "" }, { label: "▽" }, { label: "" }]
     ],
     thumb: [{ label: "▽" }, { label: "▽" }]
   }
 };
+
+// TODO: LAYER_THREE

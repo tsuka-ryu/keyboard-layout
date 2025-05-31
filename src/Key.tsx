@@ -6,7 +6,7 @@ const Key = ({ label }: { label: string }) => {
     padding: "6px 10px",
     margin: "2px",
     borderRadius: "4px",
-    background: !!label ? "rgba(255, 255, 255, 0.4)" : "transparent",
+    background: !!label ? "rgba(255, 255, 255, 0.7)" : "transparent",
     fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
     fontWeight: "600",
     fontSize: "14px",
