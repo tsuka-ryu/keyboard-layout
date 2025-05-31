@@ -54,7 +54,12 @@ const KeyboardLayout = ({ layout }: KeyboardLayoutProps) => {
             ))
           )}
         </div>
-        <div style={thumbKeysStyle}>
+        <div
+          style={{
+            ...thumbKeysStyle,
+            marginRight: "0",
+          }}
+        >
           {layout.left.thumb.map((key, index) => (
             <Key key={`left-thumb-${index}`} label={key.label} />
           ))}
@@ -69,7 +74,10 @@ const KeyboardLayout = ({ layout }: KeyboardLayoutProps) => {
             ))
           )}
         </div>
-        <div style={thumbKeysStyle}>
+        <div  style={{
+            ...thumbKeysStyle,
+            marginLeft: "0",
+          }}>
           {layout.right.thumb.map((key, index) => (
             <Key key={`right-thumb-${index}`} label={key.label} />
           ))}
