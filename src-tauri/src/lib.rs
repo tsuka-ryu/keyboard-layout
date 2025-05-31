@@ -9,6 +9,13 @@ pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
         .invoke_handler(tauri::generate_handler![greet])
+        .setup(|app| {
+            #[cfg(desktop)]
+            // https://tauri.app/plugin/global-shortcut/
+            let _ = app.handle()
+                .plugin(tauri_plugin_global_shortcut::Builder::new().build());
+            Ok(())
+        })
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
