@@ -1,18 +1,22 @@
 const Key = ({ label }: { label: string }) => {
   const style = {
-    display: "inline-block",
-    padding: "8px 14px",
-    margin: "4px",
-    borderRadius: "6px",
-    border: "2px solid #ccc",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "6px 10px", 
+    margin: "2px", 
+    borderRadius: "4px", 
+    border: "1.5px solid #ccc", 
     background: "linear-gradient(145deg, #f0f0f0, #dcdcdc)",
-    boxShadow: "2px 2px 5px #bbb, -2px -2px 5px #fff",
+    boxShadow: "1.5px 1.5px 4px #bbb, -1.5px -1.5px 4px #fff", // シャドウも調整
     fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
     fontWeight: "600",
-    userSelect: "none",
+    fontSize: "14px", 
+    userSelect: "none" as const,
     cursor: "default",
-    textAlign: "center",
-    minWidth: "30px",
+    textAlign: "center" as const,
+    minWidth: "24px", 
+    height: "32px", 
   } as const;
 
   return <div style={style}>{label}</div>;

@@ -1,6 +1,6 @@
 // import { invoke } from "@tauri-apps/api/core";
 import "./App.css";
-import Key from "./Key";
+import KeyboardLayout from "./KeyboardLayout";
 
 function App() {
   // async function greet() {
@@ -10,13 +10,7 @@ function App() {
 
   return (
     <main className="container">
-      <p>test</p>
-      <Key label="A" />
-      <Key label="A" />
-      <Key label="A" />
-      <Key label="A" />
-      <Key label="A" />
-      <Key label="A" />
+      <KeyboardLayout />
     </main>
   );
 }
