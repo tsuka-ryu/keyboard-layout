@@ -10,11 +10,16 @@
     "frontendDist": "../dist"
   },
   "app": {
+    "macOSPrivateApi": true,
     "windows": [
       {
+        "transparent": true,
+        "alwaysOnTop": true,
+        "resizable": false,
+        "fullscreen": false,
         "title": "keyboard-layout",
-        "width": 800,
-        "height": 600
+        "width": 600,
+        "height": 400
       }
     ],
     "security": {
