@@ -19,7 +19,8 @@
         "fullscreen": false,
         "title": "keyboard-layout",
         "width": 800,
-        "height": 400
+        "height": 400,
+        "devtools": true
       }
     ],
     "security": {

@@ -5,24 +5,35 @@ import KeyboardLayout from "./KeyboardLayout";
 import { register } from '@tauri-apps/plugin-global-shortcut';
 
 function App() {
-  const [shortcutTriggered, setShortcutTriggered] = useState(false);
+  const [lastTriggeredShortcut, setLastTriggeredShortcut] = useState<string>("I");
 
   useEffect(() => {
-    const registerShortcut = async () => {
+    const registerShortcuts = async () => {
       try {
-        await register('CommandOrControl+Shift+C', () => {
-          console.log('Shortcut triggered');
-          setShortcutTriggered(true);
+        // 複数のショートカットを登録
+        await register('CommandOrControl+Shift+I', () => {
+          console.log('Shortcut I triggered');
+          setLastTriggeredShortcut("I");
         });
-        console.log('Shortcut registered successfully');
+
+        await register('CommandOrControl+Shift+O', () => {
+          console.log('Shortcut O triggered');
+          setLastTriggeredShortcut("O");
+        });
+
+        await register('CommandOrControl+Shift+P', () => {
+          console.log('Shortcut P triggered');
+          setLastTriggeredShortcut("P");
+        });
+
+        console.log('All shortcuts registered successfully');
       } catch (error) {
-        console.error('Error registering shortcut:', error);
+        console.error('Error registering shortcuts:', error);
       }
     };
 
-    registerShortcut();
+    registerShortcuts();
 
-    // クリーンアップ関数
     return () => {
       // ショートカットの登録解除はTauriが自動的に行います
     };
@@ -30,7 +41,9 @@ function App() {
 
   return (
     <main className="container">
-      <p>{shortcutTriggered && "Shortcut Triggered!"}</p>
+      {lastTriggeredShortcut && (
+        <p style={{ color: 'white' }}>Last triggered shortcut: {lastTriggeredShortcut}</p>
+      )}
       <KeyboardLayout />
     </main>
   );
