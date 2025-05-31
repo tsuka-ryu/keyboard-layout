@@ -6,6 +6,7 @@ const KeyboardLayout = () => {
     justifyContent: 'center',
     gap: '60px',
     padding: '20px',
+    background:"rgba(0, 0, 0, 0.2)",
   } as const;
 
   const halfStyle = {
