@@ -1,12 +1,12 @@
 const Key = ({ label }: { label: string }) => {
-const style = {
+  const style = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     padding: "6px 10px",
     margin: "2px",
     borderRadius: "4px",
-    background: "rgba(255, 255, 255, 0.4)", 
+    background: !!label ? "rgba(255, 255, 255, 0.4)" : "transparent",
     fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
     fontWeight: "600",
     fontSize: "14px",
@@ -15,7 +15,7 @@ const style = {
     textAlign: "center" as const,
     minWidth: "24px",
     height: "32px",
-} as const;
+  } as const;
 
   return <div style={style}>{label}</div>;
 };
