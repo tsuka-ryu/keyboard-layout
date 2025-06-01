@@ -2,14 +2,13 @@
 
 分割キーボードのレイアウトを表示・設定できるアプリケーションです。
 
-https://github.com/user-attachments/assets/209acbab-b92d-404f-a75c-e4e660150dd7
-
-
 ## 機能
 
 - 分割キーボードのレイアウト表示
-- ショートカットキーによる操作（Command/Ctrl + Shift + I/O/P）
-- カスタマイズ可能なキー配列（JSONで設定可能）
+- レイヤー切り替え機能
+  - Layer 1 (デフォルト): `Command/Ctrl + Shift + J`
+  - Layer 2 (記号・特殊キー): `Command/Ctrl + Shift + K`
+- JSONで設定可能なキー配列
 
 ## 技術スタック
 
@@ -59,22 +58,31 @@ npm run tauri build
 
 ビルドされたアプリケーションは`src-tauri/target/release`に生成されます。
 
-## キーボードレイアウトのカスタマイズ
+## キーマップのカスタマイズ
 
-キーボードレイアウトは`keymap.ts`ファイルで定義されています。JSONフォーマットで以下のように設定可能です：
+キーマップは`src/keymap.ts`で定義されています。以下の形式で設定可能です：
 
 ```typescript
-const keyboardLayout = {
+export const LAYER_ONE = {
   left: {
     main: [
-      [{ label: "Q" }, { label: "W" }, ...],
-      [{ label: "A" }, { label: "S" }, ...],
-      [{ label: "Z" }, { label: "X" }, ...]
+      [{ label: "ESC" }, { label: "Q" }, ...],
+      [{ label: "Ctrl" }, { label: "A" }, ...],
+      // ...
     ],
-    thumb: [{ label: "Ctrl" }, { label: "Alt" }, { label: "⌘" }]
+    thumb: [{ label: "Space" }, ...]
   },
   right: {
     // 同様の構造
   }
 };
 ```
+
+## 利用可能なショートカット
+
+- `Command/Ctrl + Shift + J`: レイヤー1（メインレイヤー）を表示
+- `Command/Ctrl + Shift + K`: レイヤー2（シンボル・機能キー）を表示
+
+## ライセンス
+
+MIT

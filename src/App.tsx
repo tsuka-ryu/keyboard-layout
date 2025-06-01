@@ -6,25 +6,24 @@ import { LAYER_ONE, LAYER_TWO } from "./keymap";
 
 function App() {
   const [lastTriggeredShortcut, setLastTriggeredShortcut] =
-    useState<string>("I");
+    useState<string>("J");
 
   useEffect(() => {
     const registerShortcuts = async () => {
       try {
-        // 複数のショートカットを登録
-        await register("CommandOrControl+Shift+I", () => {
-          console.log("Shortcut I triggered");
-          setLastTriggeredShortcut("I");
+        await register("CommandOrControl+Shift+J", () => {
+          console.log("Shortcut J triggered");
+          setLastTriggeredShortcut("J");
         });
 
-        await register("CommandOrControl+Shift+O", () => {
-          console.log("Shortcut O triggered");
-          setLastTriggeredShortcut("O");
+        await register("CommandOrControl+Shift+K", () => {
+          console.log("Shortcut K triggered");
+          setLastTriggeredShortcut("K");
         });
 
-        await register("CommandOrControl+Shift+P", () => {
-          console.log("Shortcut P triggered");
-          setLastTriggeredShortcut("P");
+        await register("CommandOrControl+Shift+L", () => {
+          console.log("Shortcut L triggered");
+          setLastTriggeredShortcut("L");
         });
 
         console.log("All shortcuts registered successfully");
@@ -42,8 +41,8 @@ function App() {
 
   return (
     <main className="container">
-      {lastTriggeredShortcut === "I" && <KeyboardLayout layout={LAYER_ONE} />}
-      {lastTriggeredShortcut === "O" && <KeyboardLayout layout={LAYER_TWO} />}
+      {lastTriggeredShortcut === "J" && <KeyboardLayout layout={LAYER_ONE} />}
+      {lastTriggeredShortcut === "K" && <KeyboardLayout layout={LAYER_TWO} />}
     </main>
   );
 }
