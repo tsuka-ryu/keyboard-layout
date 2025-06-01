@@ -2,6 +2,8 @@
 
 分割キーボードのレイアウトを表示・設定できるアプリケーションです。
 
+https://github.com/user-attachments/assets/260e3551-aa28-4bcb-83c9-c2adc1b3585d
+
 ## 機能
 
 - 分割キーボードのレイアウトをリアルタイム表示
