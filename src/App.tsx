@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import "./App.css";
-import KeyboardLayout from "./KeyboardLayout";
 import { register } from "@tauri-apps/plugin-global-shortcut";
-import { LAYER_ONE, LAYER_TWO } from "./keymap";
+
+import KeyboardLayout from "./KeyboardLayout";
+import { LAYER_ONE, LAYER_TWO, LAYER_ZERO } from "./keymap";
+import "./App.css";
 
 function App() {
   const [lastTriggeredShortcut, setLastTriggeredShortcut] =
@@ -41,8 +42,9 @@ function App() {
 
   return (
     <main className="container">
-      {lastTriggeredShortcut === "J" && <KeyboardLayout layout={LAYER_ONE} />}
-      {lastTriggeredShortcut === "K" && <KeyboardLayout layout={LAYER_TWO} />}
+      {lastTriggeredShortcut === "J" && <KeyboardLayout layout={LAYER_ZERO} />}
+      {lastTriggeredShortcut === "K" && <KeyboardLayout layout={LAYER_ONE} />}
+      {lastTriggeredShortcut === "L" && <KeyboardLayout layout={LAYER_TWO} />}
     </main>
   );
 }
