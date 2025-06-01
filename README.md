@@ -4,35 +4,20 @@
 
 ## 機能
 
-- 分割キーボードのレイアウト表示
-- レイヤー切り替え機能
-  - Layer 1 (デフォルト): `Command/Ctrl + Shift + J`
-  - Layer 2 (記号・特殊キー): `Command/Ctrl + Shift + K`
-- JSONで設定可能なキー配列
+- 分割キーボードのレイアウトをリアルタイム表示
+- グローバルショートカットによるレイヤー切り替え
+  - レイヤー1（標準レイアウト）: `Command + Shift + J`
+  - レイヤー2（テンキー）: `Command + Shift + K`
+  - レイヤー3（記号・特殊キー）: `Command + Shift + L`
+- キーマップのJSONカスタマイズ対応
+  - レイヤーごとの独立したマッピング
+  - 左右分割キーボード対応
+  - メインキーと親指キーの個別設定
 
-## 技術スタック
+## インストール方法
 
-- [Tauri](https://tauri.app/) - クロスプラットフォームアプリケーションフレームワーク
-- [React](https://react.dev/) - UIフレームワーク
-- [TypeScript](https://www.typescriptlang.org/) - 型安全な JavaScript
-- [Vite](https://vitejs.dev/) - 開発環境
+### 事前準備
 
-## 開発環境のセットアップ
-
-### 必要な環境
-
-- [Node.js](https://nodejs.org/) (v18以上)
-- [Rust](https://www.rust-lang.org/)
-- [VS Code](https://code.visualstudio.com/) (推奨)
-
-### 推奨VS Code拡張機能
-
-- [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode)
-- [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
-
-### インストール手順
-
-1. リポジトリをクローン
 ```bash
 git clone [repository-url]
 cd keyboard-layout
@@ -66,22 +51,23 @@ npm run tauri build
 export const LAYER_ONE = {
   left: {
     main: [
-      [{ label: "ESC" }, { label: "Q" }, ...],
-      [{ label: "Ctrl" }, { label: "A" }, ...],
-      // ...
+      [{ label: "ESC" }, { label: "Q" }, { label: "W" }, { label: "E" }, { label: "R" }, { label: "T" }],
+      [{ label: "Ctrl" }, { label: "A" }, { label: "S" }, { label: "D" }, { label: "F" }, { label: "G" }],
+      [{ label: "Shift" }, { label: "Z" }, { label: "X" }, { label: "C" }, { label: "V" }, { label: "B" }],
+      [{ label: "" }, { label: "" }, { label: "Alt" }, { label: "Cmd" }, { label: "" }, { label: "" }]
     ],
     thumb: [{ label: "Space" }, ...]
   },
   right: {
-    // 同様の構造
+    // 右側も同様の構造
   }
 };
 ```
 
 ## 利用可能なショートカット
-
 - `Command/Ctrl + Shift + J`: レイヤー1（メインレイヤー）を表示
 - `Command/Ctrl + Shift + K`: レイヤー2（シンボル・機能キー）を表示
+- `Command/Ctrl + Shift + L`: レイヤー3（記号・特殊キー）を表示
 
 ## ライセンス
 
