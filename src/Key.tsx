@@ -9,7 +9,7 @@ const Key = ({ label }: { label: string }) => {
     background: !!label ? "rgba(255, 255, 255, 0.7)" : "transparent",
     fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
     fontWeight: "600",
-    fontSize: "14px",
+    fontSize: "12px",
     userSelect: "none" as const,
     cursor: "default",
     textAlign: "center" as const,
