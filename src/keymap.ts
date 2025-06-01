@@ -52,9 +52,9 @@ export const LAYER_TWO = {
 },
 right: {
     main: [
-        [{ label: "*" }, { label: "(" }, { label: ")" }, { label: "-" }, { label: "+" }, { label: "~" }],
+        [{ label: "(" }, { label: ")" }, { label: "-" }, { label: "+" }, { label: "~" }, { label: "BS" }],
         [{ label: "!" }, { label: "@" }, { label: "[" }, { label: "]" }, { label: "|" }, { label: "▽" }],
-        [{ label: "#" }, { label: "$" }, { label: "$" }, { label: "^" }, { label: "&" }, { label: "▽" }],
+        [{ label: "#" }, { label: "$" }, { label: "%" }, { label: "^" }, { label: "&" }, { label: "*" }],
         [{ label: "" }, { label: "" }, { label: "" }, { label: "" }, { label: "▽" }, { label: "" }]
     ],
     thumb: [{ label: "Del" }, { label: "▽" }]
